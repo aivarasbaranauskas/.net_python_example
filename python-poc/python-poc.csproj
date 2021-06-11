@@ -5,4 +5,12 @@
     <RootNamespace>python_poc</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Python.Runtime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Python.Runtime">
+      <HintPath>..\..\pythonnet\src\runtime\obj\ReleaseMonoPY3\Python.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
