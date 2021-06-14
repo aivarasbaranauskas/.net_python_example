@@ -14,3 +14,7 @@ It can be found in `pythonnet/src/runtime/obj/ReleaseMonoPY3/Python.Runtime.dll`
 4. Update `PYTHONNET_PYDLL` in `Properties/launchSettings.json` to match your python installation if needed.
 
 ## Build and run using Visual Studio
+
+# Running custom libs
+
+Path to custom python librarries must be provided via `PYTHONPATH` evironment variable (see `Properties/launchSettings.json` for example).

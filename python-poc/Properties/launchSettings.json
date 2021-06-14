@@ -24,7 +24,8 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "PYTHONNET_PYDLL": "/usr/local/Frameworks/Python.framework/Versions/3.9/lib/libpython3.9.dylib"
+        "PYTHONNET_PYDLL": "/usr/local/Frameworks/Python.framework/Versions/3.9/lib/libpython3.9.dylib",
+        "PYTHONPATH": "./"
       }
     }
   }

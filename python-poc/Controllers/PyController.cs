@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Python.Runtime;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 
 namespace python_poc.Controllers
 {
@@ -7,32 +7,20 @@ namespace python_poc.Controllers
     [Route("py")]
     public class PyController : Controller
     {
+        private readonly IPyWrap _py;
+
+        public PyController(IPyWrap py)
+        {
+            _py = py;
+        }
+
         [HttpGet]
         public string Get()
         {
-            Person person = new("John", "Smith");
-            string fullNameStr;
-
-            using (Py.GIL())
-            {
-                // create a Python scope
-                using PyScope scope = Py.CreateScope();
-
-                // convert the Person object to a PyObject
-                PyObject pyPerson = person.ToPython();
-
-                // create a Python variable "person"
-                scope.Set("person", pyPerson);
-
-                // the person object may now be used in Python
-                string code = "fullName = person.FirstName + ' ' + person.LastName";
-                scope.Exec(code);
-
-                PyObject fullName = scope.Get("fullName");
-                fullNameStr = fullName.As<string>();
-            }
-
-            return fullNameStr;
+            return _py.multiply(
+                new List<float> { 1, 2, 3 },
+                new List<float> { 6, 5, 4 }
+                );
         }
     }
 }
